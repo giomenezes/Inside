@@ -12,7 +12,7 @@
 
 #divPai {
     width: 100vw;
-    height: 100vh;
+    height: 670vh;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -45,7 +45,7 @@
 #divLinks {
     display: flex;
     width: 100vw;
-    height: 71vh;
+    height: 555vh;
     flex-wrap: wrap;
 }
 
