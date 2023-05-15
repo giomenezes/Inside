@@ -1,0 +1,29 @@
+#divPai {
+    width: 100vw;
+    height: 134vh;
+}
+
+#photoIniciar {
+    width: 100vw;
+    height: 120vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+#iniciar {
+    width: 25vw;
+    height: 10vh;
+    display: flex;
+    box-sizing: border-box;
+    font-size: 30px;
+    background-color: #868890;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    box-shadow: #414141 0px 5px 5px 0px;
+}
+
