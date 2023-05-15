@@ -7,6 +7,7 @@
     color: white;
 }
 
+/* Header's style: */
 header {
     display: flex;
     flex-direction: row;
@@ -27,12 +28,20 @@ ul {
     padding-left: 5px;
 }
 
-header a img {
-    padding-left: 15px;
+#user-icon {
     width: 50px;
     height: 50px;
+    padding: 8px;
+    margin-left: 10%;
 }
 
+.liZoom:hover {
+    background-color: #73767e;
+    padding-right: 15px;
+    border-radius: 10%;
+}
+
+/* Footer's style:  */
 footer {
     display: flex;
     justify-content: space-between;
@@ -61,4 +70,52 @@ footer {
 #socialMedia img {
     padding-left: 15px;
     justify-content: baseline;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #c7c7c7;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #acacac}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #73767e;
+  border-radius: 50%;
+  border-spacing: 5%;
 }
