@@ -9,7 +9,7 @@
     <title>Inside - Quiz</title>
 
     <link rel="stylesheet" href="../style/header&footer.css">
-    <link rel="stylesheet" href="../quiz/quiz.css">
+    <link rel="stylesheet" href="../quiz/beginning.css">
 </head>
 
 <body>
@@ -19,10 +19,16 @@
         <div id="mainPhoto">
             <img src="../assets/quiz/quizStart.png" alt="Foto - Iniciar Quiz" id="photoIniciar">
         </div>
-        <a href="../quiz/start.html" id="iniciar">Iniciar</a>
+        <button onclick="iniciar()" id="btnInicio">Iniciar</button>
     </div>
     
     <script src="../assets/components/footer.js"></script>
 </body>
 
 </html>
+
+<script>
+    function iniciar() {
+        window.location = 'start.html'
+    }
+</script>

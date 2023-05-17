@@ -1,21 +1,18 @@
 #divPai {
     width: 100vw;
-    height: 134vh;
+    height: 124vh;
 }
 
 #photoIniciar {
     width: 100vw;
-    height: 120vh;
+    height: 110vh;
 }
 
-a {
-    text-decoration: none;
-}
-
-#iniciar {
+#btnInicio {
     width: 25vw;
     height: 10vh;
     display: flex;
+    border: 1px;
     box-sizing: border-box;
     font-size: 30px;
     background-color: #868890;
@@ -24,6 +21,6 @@ a {
     align-items: center;
     text-transform: uppercase;
     font-weight: bolder;
-    box-shadow: #414141 0px 5px 5px 0px;
+    box-shadow: #414141 0px 5px 5px 0px; 
 }
 
