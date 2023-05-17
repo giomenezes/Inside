@@ -134,6 +134,10 @@
     align-items: center;
 }
 
+#divBolinhas a {
+    text-decoration: none;
+}
+
 #divQuiz #divBolinhas div {
     display: flex;
     flex-direction: column;

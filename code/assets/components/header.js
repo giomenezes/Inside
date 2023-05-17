@@ -7,7 +7,7 @@ header.innerHTML =
             <ul>
                 <li class="liZoom"><a href="../estilos/estilos.html">Estilos</a></li>
                 <li class="liZoom"><a href="../posts/posts.html">Posts</a></li>
-                <li class="liZoom"><a href="../quiz/quiz.html">Quiz</a></li>
+                <li class="liZoom"><a href="../quiz/beginning.html">Quiz</a></li>
                 <div class="dropdown">
                         <img src="../assets/user.png" alt="Icon: User" id="user-icon" class="dropbtn">
                         <div class="dropdown-content">
