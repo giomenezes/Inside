@@ -7,6 +7,12 @@ a {
     text-decoration: none;
 }
 
+#divPai {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 #photoChoice {
     width: 100vw;
     height: 50vh;
