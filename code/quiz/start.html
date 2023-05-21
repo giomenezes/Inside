@@ -16,12 +16,35 @@
     <script src="../assets/components/header.js"></script>
 
     <div id="divPai">
-        <a href="" id="rapido">Versão rápida</a>
-        <div id="mainPhoto">
-            <img src="../assets/quiz/quizChoice.png" alt="Foto - Iniciar Quiz" id="photoChoice">
+        <div id="divInicio">
+            <div id="mainPhoto">
+                <img src="../assets/quiz/quizStart.png" alt="Foto - Iniciar Quiz" id="photoIniciar">
+            </div>
+            <button onclick="iniciar()" id="btnInicio">Iniciar</button>
         </div>
-        <a href="" id="completo">Versão completa</a>
+        
+        <div id="divComecar">
+            <a href="../quiz/shortVer.html" id="rapido">Versão rápida</a>
+            <p>*Para aqueles que desejam descobrir seu estilo de forma mais rápida, contém apenas 8 rounds.*</p>
+            <div id="mainPhoto">
+                <img src="../assets/quiz/quizChoice.png" alt="Foto - Iniciar Quiz" id="photoChoice">
+            </div>
+            <a href="../quiz/longVer.html" id="completo">Versão completa</a>
+            <p>*Para aqueles que preferem ter uma versão mais precisa porém longínqua, contém 16 rounds.*</p>
+        </div>
     </div>
-    
+
     <script src="../assets/components/footer.js"></script>
 </body>
+
+</html>
+
+<script>
+    divInicio.style.display = 'block'
+    divComecar.style.display = 'none'
+
+    function iniciar() {
+        divInicio.style.display = 'none'
+        divComecar.style.display = 'block'
+    }
+</script>
