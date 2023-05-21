@@ -5,7 +5,7 @@ header.innerHTML =
         <a href="../home/home.html"><img class="logotipo" src="../assets/logoWBg.png" alt="Logo: Inside"></a>
         <div id="divListas">
             <ul>
-                <li class="liZoom"><a href="../estilos/estilos.html">Estilos</a></li>
+                <li class="liZoom"><a href="../estilos/listaEstilos.html">Estilos</a></li>
                 <li class="liZoom"><a href="../posts/posts.html">Posts</a></li>
                 <li class="liZoom"><a href="../quiz/start.html">Quiz</a></li>
                 <div class="dropdown">
