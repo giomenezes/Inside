@@ -1,0 +1,40 @@
+.divPai {
+    display: flex;
+    width: 100vw;
+    height: auto;
+}
+
+.divCarrossel {
+    width: 50vw;
+    height: fit-content;
+}
+
+.divEstilos {
+    display: flex;
+    width: 50vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    /* margin: 5%; */
+}
+
+.mainText {
+    display: flex;
+    padding: 2%;
+    width: 30vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    text-align: justify;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: #d1d1d1 0px 5px 5px 0px;
+    background-color: #868890;
+}
+
+.mainText a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
