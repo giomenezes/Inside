@@ -1,0 +1,19 @@
+.divPai {
+    display: flex;
+    width: 100vw;
+    height: 50vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.divDireita {
+    width: 50vw;
+    height: 50vh;
+    background-size: cover;
+}
+
+.divEsquerda {
+    width: 50vw;
+    height: 50vh;
+    background-size: cover;
+}
