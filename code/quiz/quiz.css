@@ -1,19 +1,23 @@
 .divPai {
     display: flex;
     width: 100vw;
-    height: 50vh;
-    margin: 0px;
-    padding: 0px;
+    height: 130vh;
 }
 
 .divDireita {
+    display: flex;
     width: 50vw;
-    height: 50vh;
-    background-size: cover;
+    height: 130vh;
 }
 
 .divEsquerda {
+    display: flex;
     width: 50vw;
-    height: 50vh;
-    background-size: cover;
+    height: 130vh;
+}
+
+.divPai div img {
+    cursor: pointer;
+    width: 50vw;
+    height: 130vh;
 }

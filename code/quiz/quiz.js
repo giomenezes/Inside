@@ -1,6 +1,6 @@
 var rodada = 0;
-var sortear1 = (Math.random() * 16).toFixed(0);
-var sortear2 = (Math.random() * 16).toFixed(0);
+var sortear1 = (Math.random() * 15).toFixed(0);
+var sortear2 = (Math.random() * 15).toFixed(0);
 
 var sorteados = [];
 var estiloFinal = '';
@@ -60,7 +60,7 @@ function sorteios() {
 }
 
 function escolher() {
-    for (rodada = 0; rodada < 16; rodada++) {
+    for (rodada = 0; rodada < 15; rodada++) {
         sortear1();
         sortear2();
 

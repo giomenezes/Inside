@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="carlos" onclick="esquerda()">aaaaaaaaaaa</div>
+    <div id="walmir" onclick="direita()">aaaaaaaaaaa</div>
+    <button onclick="tela()">AAAAAAAAAAAAAAAAAAAAAAAAAAAA</button>
+    <p id="a"></p>
+</body>
+</html>
+
+<script>
+const respostas = [];
+const imagens = ['1','2','3','4','5','6','7','8','9', '10', '11', '12', '13', '14', '15', '16'];
+var ran = 0;
+var imgAtual = 0;
+var rodadas = imagens.length;
+var output = '';
+var img = 0;
+
+function sortear() {
+    ran = Math.floor(Math.random()*imagens.length);
+    imgAtual = imagens[ran];
+}
+
+function mostrar(){
+    sortear();
+    if(rodadas>0){
+        if(imgAtual!=undefined){
+            output = `<p>${imgAtual}</p>`
+        } else {
+            while(imgAtual==undefined){
+                sortear();
+                console.log(imagens)
+            }
+            output = `<p>${imgAtual}</p>`
+        }
+
+    }
+
+    delete imagens[ran];
+    rodadas--
+}
+
+function esquerda(){
+    respostas.push('1');
+    console.log(respostas);
+}
+
+function direita(){
+    respostas.push('2');
+    console.log(respostas);
+}
+
+function tela(){
+    mostrar();
+    if (output != ''){
+        if(img==0){
+            a.innerHTML += `<p>Esquerda: ${output}</p>`;
+            img++
+        } else {
+            a.innerHTML += `<p>Direita: ${output}</p>`;
+            img = 0;
+        }
+    }
+    output = '';
+}
+</script>
