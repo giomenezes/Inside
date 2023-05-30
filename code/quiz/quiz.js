@@ -15,8 +15,8 @@ function sorteios() {
         divEscolhaDois.innerHTML = `<img src="../assets/quiz/boho.png" alt="" id="bohoPNG" onclick="escolher()">`
         sorteados.push(sortear2);
     } if (sortear1 == 2) {
-        divEscolhaUm.innerHTML = `<img src="../assets/quiz/contemporanea.png" alt="" id="contemporaneaPNG" onclick="escol
-        sorteados.push(sortear1);her()">`
+        divEscolhaUm.innerHTML = `<img src="../assets/quiz/contemporanea.png" alt="" id="contemporaneaPNG" onclick="escolher()">`
+        sorteados.push(sortear1);
     } if (sortear2 == 3) {
         divEscolhaDois.innerHTML = `<img src="../assets/quiz/cottage.png" alt="" id="cottagePNG" onclick="escolher()">`
         sorteados.push(sortear2);
