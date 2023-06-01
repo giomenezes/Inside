@@ -1,0 +1,23 @@
+.divPai {
+    display: flex;
+    width: 100vw;
+    height: 130vh;
+}
+
+.divDireita {
+    display: flex;
+    width: 50vw;
+    height: 130vh;
+}
+
+.divEsquerda {
+    display: flex;
+    width: 50vw;
+    height: 130vh;
+}
+
+.divPai div img {
+    cursor: pointer;
+    width: 50vw;
+    height: 130vh;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/logo-nobg.png" type="image/x-icon">
+    <title>Inside - Quiz</title>
+
+    <link rel="stylesheet" href="../style/header&footer.css">
+    <link rel="stylesheet" href="../quiz/start.css">
+</head>
+
+<body>
+    <script src="../assets/components/header.js"></script>
+
+    <div id="divPai">
+        <div id="divInicio">
+            <div id="mainPhoto">
+                <img src="../assets/quiz/quizStart.png" alt="Foto - Iniciar Quiz" id="photoIniciar">
+            </div>
+            <button onclick="iniciar()" id="btnInicio">Iniciar</button>
+        </div>
+        
+        <div id="divComecar">
+            <a href="../quiz/shortVer.html" id="rapido">Versão rápida</a>
+            <p>*Para aqueles que desejam descobrir seu estilo de forma mais rápida, contém apenas 8 rounds.*</p>
+            <div id="mainPhoto">
+                <img src="../assets/quiz/quizChoice.png" alt="Foto - Iniciar Quiz" id="photoChoice">
+            </div>
+            <a href="../quiz/longVer.html" id="completo">Versão completa</a>
+            <p>*Para aqueles que preferem ter uma versão mais precisa porém longínqua, contém 16 rounds.*</p>
+        </div>
+    </div>
+
+    <script src="../assets/components/footer.js"></script>
+</body>
+
+</html>
+
+<script>
+    divInicio.style.display = 'block'
+    divComecar.style.display = 'none'
+
+    function iniciar() {
+        divInicio.style.display = 'none'
+        divComecar.style.display = 'block'
+    }
+</script>

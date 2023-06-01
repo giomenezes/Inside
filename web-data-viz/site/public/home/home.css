@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: Poppins;
+}
+
+.spacing {
+    width: 100vw;
+    height: 10vh;
+}
+
+#divPai {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#divMainPhoto {
+    margin: 0px;
+    display: flex;
+    width: 100vw;
+    height: 85vh;
+}
+
+#divMainPhoto img {
+    width: 100vw;
+    height: 85vh;
+    box-sizing: border-box;
+    box-shadow: #d1d1d1 0px 5px 5px 0px;
+}
+
+#divMain {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+#divMain h3 {
+    display: flex;
+    font-size: 40px;
+    color: #DCB66F;
+    text-transform: uppercase;
+    font-weight: bold;
+    justify-content: flex-end;
+}
+
+#divExplicacao {
+    display: flex;
+    font-size: 25px;
+    width: 45vw;
+    background-color: #868890;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: justify;
+    box-sizing: border-box;
+    box-shadow: #d1d1d1 0px 5px 5px 0px;
+}
+
+#divExplicacao p, cite {
+    padding: 3%;
+}
+
+#divRecentes {
+    display: flex;
+}
+
+#divRecentes h3 {
+    display: flex;
+    font-size: 40px;
+    color: #DCB66F;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#divRecentes img {
+    display: flex;
+}
+
+.divLink {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.divLink img {
+    width: 7vw;
+}
+
+.divLink a {
+    display: flex;
+    width: 400px;
+    height: 50px;
+    box-sizing: border-box;
+    font-size: 15px;
+    background-color: #868890;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: #c9c9c9 0px 5px 5px 0px;
+}
+
+#divQuiz h2 {
+    width: 80vw;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: #414141 0px 5px 5px 0px;
+}
+
+#divQuiz button {
+    width: 355px;
+    height: 45px;
+    box-sizing: border-box;
+    box-shadow: #414141 0px 5px 5px 0px;
+    border: 0px;
+    font-size: 30px;
+    font-weight: bold;
+    justify-content: center;
+}
+
+#divBolinhas {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#divBolinhas a {
+    text-decoration: none;
+}
+
+#divQuiz #divBolinhas div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#divQuiz #divBolinhas p {
+    display: flex;
+    width: 400px;
+    height: 50px;
+    box-sizing: border-box;
+    font-size: 25px;
+    background-color: #868890;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: #414141 0px 5px 5px 0px;
+}
+
+button {
+    display: flex;
+    background-color: #868890;
+    border-radius: 15px;
+    width: 100px;
+    text-transform: uppercase;
+    font-size: larger;
+}
+
+h2 {
+    display: flex;
+    background-color: #868890;
+    border-radius: 20px;
+    width: 60vw;
+    height: 8vh;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: larger;
+}
+
+#divTCC img {
+    width: 100vw;
+    height: 100vh;
+}
+
+#divSobreMim {
+    display: flex;
+}

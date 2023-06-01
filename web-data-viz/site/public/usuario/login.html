@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/logo-nobg.png" type="image/x-icon">
+    <title>Inside - Login</title>
+
+    <link rel="stylesheet" href="../../style/header&footer.css">
+    <link rel="stylesheet" href="../usuario/usuario.css">
+</head>
+
+<body>
+    <script src="../assets/components/header.js"></script>
+
+    <div id="pai">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+
+        <div id="divPhoto">
+            <img src="../assets/usuario/loginPhoto.png" alt="Projeto: Abraçando as Curvas - archDaily">
+        </div>
+
+        <div id="divLogin">
+            <img src="../assets/usuario/user-gray.png" alt="Usuário icon">
+            <div class="divForm">
+                <p>Login:</p>
+                Nickname: <br>
+                <input type="text" name="" id="ipt_nickname"> <br>
+                Senha: <br>
+                <input type="text" name="" id="ipt_senha"> <br>
+                <button onclick="entrar()">Entrar</button>
+
+                <div id="div_aguardar" class="loading-div">
+                    <img src="../assets/usuario/loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/components/footer.js"></script>
+</body>
+</body>
+
+</html>
+
+<script>
+    function entrar() {
+        aguardar();
+
+        var emailVar = ipt_nickname.value;
+        var senhaVar = ipt_senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        if (emailVar == 'insider@gmail.com') {
+                            window.location = "./dashboard/dashAdm.html"
+                        } else {
+                            window.location = "./dashboard/dashUser.html";
+                        }
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
