@@ -14,7 +14,6 @@ a {
     height: 50%;
 }
 
-
 #btnInicio {
     width: 25vw;
     height: 7%;
@@ -48,12 +47,8 @@ a {
     justify-content: space-between;
 }
 
-#rapido {
-}
-
 #divComecar p {
     margin-top: 1%;
-    text-transform: lowercase;
     font-style: italic;
     color: #000;
     text-align: center;
