@@ -25,16 +25,16 @@ function listar(req, res) {
 }
 
 function entrar(req, res) {
-    var email = req.body.emailServer;
+    var nick = req.body.nickServer;
     var senha = req.body.senhaServer;
 
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+    if (nick == undefined) {
+        res.status(400).send("Seu nick está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
         
-        usuarioModel.entrar(email, senha)
+        usuarioModel.entrar(nick, senha)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -44,7 +44,7 @@ function entrar(req, res) {
                         console.log(resultado);
                         res.json(resultado[0]);
                     } else if (resultado.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
+                        res.status(403).send("Nick e/ou senha inválido(s)");
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }
@@ -61,25 +61,28 @@ function entrar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nick = req.body.nickServer;
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var cpf = req.body.cpfServer;
+    var telefoneCel = req.body.telCelularServer;
+    var telefoneFixo = req.body.telFixoServer;
 
-    // Faça as validações dos valores
-    if (nome == undefined) {
+    // Validações dos valores
+    if (nick == undefined) {
+        res.status(400).send("Seu nickname está undefined!");
+    } else if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (cpf == undefined){
-        res.status(400).send("Seu cpf está undefined!");
+    } else if (telefoneCel == undefined){
+        res.status(400).send("Seu telefone celular está undefined!");
     } else {
         
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, cpf)
+        // Passando os valores como parâmetro
+        usuarioModel.cadastrar(nick, nome, email, senha, telefoneCel, telefoneFixo)
             .then(
                 function (resultado) {
                     res.json(resultado);

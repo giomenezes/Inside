@@ -1,85 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/logo-nobg.png" type="image/x-icon">
+    <title>Inside - Home</title>
 
-    <title>AquaTech | Página Inicial</title>
-
-    <script src="./js/funcoes.js"></script>
-
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!-- <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet"> -->
+    <link rel="stylesheet" href="./css/header&footer.css">
+    <link rel="stylesheet" href="./home/home.css">
 </head>
 
 <body>
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
+    <header>
+        <a href="./index.html"><img class="logotipo" src="./assets/logoWBg.png" alt="Logo: Inside"></a>
+        <div id="divListas">
+            <ul>
+                <li class="liZoom"><a href="./estilos/listaEstilos.html">Estilos</a></li>
+                <li class="liZoom"><a href="./posts/posts.html">Posts</a></li>
+                <li class="liZoom"><a href="./quiz/start.html">Quiz</a></li>
+                <div class="dropdown">
+                    <img src="./assets/user.png" alt="Icon: User" id="user-icon" class="dropbtn">
+                    <div class="dropdown-content">
+                        <a href="./usuario/cadastro.html">Cadastro</a>
+                        <a href="./usuario/login.html">Login</a>
+                    </div>
+                </div>
+            </ul>
         </div>
-      </div>
+    </header>
+
+    <div id="pai">
+        <div id="divMainPhoto">
+            <img src="./assets/index/mainPhoto.png" alt="Aprenda a transformar o seu ambiente!">
+        </div>
+
+        <div class="spacing"></div>
+
+        <div id="divMain">
+            <div id="divRight">
+                <h3>O Design</h3>
+                <div id="divExplicacao">
+                    <p>A forma como você designa a sua casa diz muito sobre você. Designar seu lar é cuidar e zelar de
+                        uma parte externa sua de uma forma que todos podem ver. E para aqueles que procuram novas formas
+                        de se expressar, aqui é o melhor lugar para você se descobrir.</p><br>
+                    <cite>“O design de interiores representa o significado de morar bem. É expressar em um ambiente
+                        personalidade, gostos, memórias e histórias dos moradores. Humanizar os espaços, unir os pilares
+                        da decoração: estética, estabilidade e utilidade, e indo além, transformando sua casa em um lar”
+                        <br> - Lenise Marques, Designer de interiores</cite>
+                </div>
+            </div>
+            <div id="divLeft">
+                <img src="./assets/Index/maisProcurado.png" alt="">
+            </div>
+        </div>
+
+        <div class="spacing"></div>
+
+        <div id="divRecentes">
+            <div class="divLeft">
+                <h3>Posts Recentes</h3>
+                <img src="./assets/Index/lastPost01.png" alt="">
+                <br>
+                <div class="divLink">
+                    <a href="./posts/salasAbertas">Como salas abertas podem melhorar o espaço da sua casa</a>
+                    <img src="./assets/Index/archDaily.png" alt="">
+                </div>
+            </div>
+            <div class="divRight">
+                <br><br><br>
+                <img src="./assets/Index/lastPost02.png" alt="">
+                <br>
+                <div class="divLink">
+                    <a href="./posts/iluminacaoIndireta">A efetividade da iluminação indireta</a>
+                    <img src="./assets/Index/archDaily.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="spacing"></div>
+
+        <div id="divQuiz">
+            <h2>Descubra qual estilo décor combina mais com você!</h2>
+            <br>
+            <div id="divBolinhas">
+                <div id="divBohemian">
+                    <a href="./estilos/boho.html"><img src="./assets/Index/bohemianStyle.png"
+                            alt=""></a>
+                    <br>
+                    <a href="./estilos/boho.html">
+                        <p>Estilo Boho</p>
+                    </a>
+                </div>
+                <div id="divContemporary">
+                    <a href="./estilos/contemporanea.html"><img
+                            src="./assets/Index/contemporaryStyle.png" alt=""></a>
+                    <br>
+                    <a href="./estilos/contemporanea.html">
+                        <p>Estilo Contemporâneo</p>
+                    </a>
+                </div>
+                <div id="divIndustrial">
+                    <a href="./estilos/industrial.html"><img src="./assets/Index/industrialStyle.png"
+                            alt=""></a>
+                    <br>
+                    <a href="./estilos/industrial.html">
+                        <p>Estilo Industrial</p>
+                    </a>
+                </div>
+            </div>
+            <br>
+            <button onclick="levarQuiz()" id="quizCall">Faça o Quiz!</button>
+        </div>
+
+        <div class="spacing"></div>
+
+        <div id="divTCC">
+            <a href="https://drive.google.com/file/d/1CoKyu9CYAVmJvW4zlR0KfnOo225ypuu1/view?usp=share_link"
+                alt="Apresentação - TCC"><img src="./assets/Index/tcc.png" alt="TCC - Tiny House: Recanto"></a>
+        </div>
+
+        <div class="spacing"></div>
+
+        <div id="divSobreMim">
+            <div id="divPhoto">
+                <img src="./assets/Index/myPhoto.png" alt="">
+            </div>
+            <div id="divSobre">
+                <img src="./assets/Index/aboutMeText.png" alt="">
+            </div>
+        </div>
+        <div class="spacing"></div>
     </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
-    </div>
-  </body>
+
+    <footer>
+        <div id="copyright">
+            <img class="logotipo" src="./assets/logoWBg.png" alt="Logo: Inside">
+            <p> Copyright Inside, 2023. Todos os direitos reservados</p>
+        </div>
+        <div id="contato">
+            <h4>CONTATO:</h4>
+            <p>giovanna.vilasboas@outlook.com</p>
+            <br>
+            <h5>ACOMPANHE AS REDES SOCIAIS:</h5>
+
+            <div id="socialMedia">
+                <a href="https://www.behance.net/giosz1/moodboards"><img src="./assets/behance.png"
+                        alt="Icon: Behance"></a>
+                <a href="https://www.linkedin.com/in/giomenezes/"><img src="./assets/linkedin.png"
+                        alt="Icon: LinkedIn"></a>
+                <a href="https://www.pinterest.pt/trblgio/"><img src="./assets/pinterest.png"
+                        alt="Icon: Pinterest"></a>
+                <a href="https://www.instagram.com/trblgio/"><img src="./assets/instagram.png"
+                        alt="Icon: Instagram"></a>
+            </div>
+        </div>
+    </footer>
+</body>
 
 </html>
+
+<script>
+    function levarQuiz() {
+        window.location = "./quiz/start.html";
+    }
+</script>

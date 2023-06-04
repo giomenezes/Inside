@@ -2,7 +2,7 @@ const header = document.createElement('template');
 
 header.innerHTML =
     `<header>
-        <a href="../home/home.html"><img class="logotipo" src="../assets/logoWBg.png" alt="Logo: Inside"></a>
+        <a href="../index.html"><img class="logotipo" src="../assets/logoWBg.png" alt="Logo: Inside"></a>
         <div id="divListas">
             <ul>
                 <li class="liZoom"><a href="../estilos/listaEstilos.html">Estilos</a></li>
