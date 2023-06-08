@@ -1,0 +1,88 @@
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 100,
+        'wght' 400,
+        'GRAD' 100,
+        'opsz' 48
+}
+
+.divPai {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+
+}
+
+.divFavoritos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardFav {
+    margin: 0px;;
+    width: 20%;
+    height: 45%;
+
+    flex-direction: row;
+    
+    justify-content: space-between;
+    
+}
+
+.cardFav img {
+    width: 80%;
+    height: 45%;
+    
+    flex-wrap: wrap;
+}
+
+  button {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+  }
+  .label {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+  .label svg {
+    margin-right: 4px;
+  }
+  .label path {
+    fill: #8a8d9b;   
+    transition: all .25s ease-in-out;       
+  }
+  .number {
+    color: #8a8d9b;
+  }
+  button:hover path{
+    fill: #ff0000;
+  }
+  button.like svg {
+    animation: transitionLike 1s ease-in;
+  }
+  button.like path {
+    fill: #ff0000;
+  }
+  
+  @keyframes transitionLike {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.3);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

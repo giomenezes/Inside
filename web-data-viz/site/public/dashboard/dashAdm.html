@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/logo-nobg.png" type="image/x-icon">
+    <title>Inside - Administrador</title>
+
+    <link rel="stylesheet" href="../css/header&footer.css">
+    <link rel="stylesheet" href="../css/dashAdm.css">
+</head>
+
+<body>
+    <script src="../assets/components/header.js"></script>
+    <div class="divPai">
+        <div id="divKPIs">
+            <div id="divTEU" class="kpi">
+                <p id="pTEU">ESTILO FAVORITO E TAXA DE ENGAJAMENTO E MAIS ALGUMAS COISINHAS LEGAIS</p>
+            </div>
+            <div id="divCadastrados" class="kpi">
+                <p id="pCadastrados">ESTILO FAVORITO E TAXA DE ENGAJAMENTO E MAIS ALGUMAS COISINHAS LEGAIS</p>
+            </div>
+            <div id="divEstiloMaisCurtido" class="kpi">
+                <p id="pEstiloFav">ESTILO FAVORITO E TAXA DE ENGAJAMENTO E MAIS ALGUMAS COISINHAS LEGAIS</p>
+            </div>
+        </div>
+
+        <div class="divCharts">
+            <div class="divGraficos">
+                <div id="divRelatorioCadastros">
+                    <h1>Relatório de usuários cadastrados</h1>
+                    <canvas id="cadastros" class="graph"></canvas>
+                </div>
+
+                <div id="divRelatorioEstilos">
+                    <h1>Estilos mais populares</h1>
+                    <canvas id="estilos" class="graph"></canvas>
+                </div>
+            </div>
+
+            <div class="divResumo">
+                <div class="quizTorneio">
+                    <h1>Quiz vs Torneio</h1>
+                    <canvas id="interacao" class="rosca"></canvas>
+                </div>
+
+                <div class="cadastradosNãoCadastrados">
+                <h1>Cadastrados vs Não Cadastrados</h1>
+                <canvas id="cadastrados" class="rosca"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/dashboard.js"></script>

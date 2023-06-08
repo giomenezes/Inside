@@ -50,13 +50,13 @@ function login() {
                 
                 if (sessionStorage.NICK_USER == 'trblgio') {
                     setTimeout(function () {
-                        window.alert(`Seja bem-vindo(a), ${sessionStorage.NOME_USUARIO}!`)
-                        window.location = "../dashboard/dashboard.html";
+                        window.alert(`Seja bem-vindo(a), ${sessionStorage.NOME_USER}!`)
+                        window.location = "../dashboard/dashAdm.html";
                     }, 1000);
                 } else {
                     setTimeout(function () {
-                        window.alert(`Bem-vindo(a) de volta, ${sessionStorage.NOME_USUARIO}!`)
-                        window.location = "../admSafeAir/admSafeAir.html";
+                        window.alert(`Bem-vindo(a) de volta, ${sessionStorage.NOME_USER}!`)
+                        window.location = "../dashboard/dashUser.html";
                     }, 1000);
                 }
             });
