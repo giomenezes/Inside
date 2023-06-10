@@ -19,24 +19,19 @@
     <script src="../assets/components/header.js"></script>
     <div class="divPai">
         <div class="divFavoritos">
-            <div class="cardFav">
-                <img src="../assets/styles/artDeco.png">
-                <span class="material-symbols-outlined" onclick="dislike()">favorite</span>
+            <div class="torneio">
+                <img id="torneioUser" src="">
+                <!-- <span class="material-symbols-outlined" onclick="dislike()">favorite</span> -->
             </div>
 
-            <div class="cardFav">
-                <img src="../assets/styles/industrial.png">
-                <span class="material-symbols-outlined" onclick="dislike()">favorite</span>
+            <div class="quiz">
+                <img id="quizUser" src="">
+                <!-- <span class="material-symbols-outlined" onclick="dislike()">favorite</span> -->
             </div>
 
-            <div class="cardFav">
-                <img src="../assets/styles/artDeco.png">
-                <span class="material-symbols-outlined" onclick="dislike()">favorite</span>
-            </div>
-
-            <div class="cardFav">
-                <img src="../assets/styles/industrial.png">
-                <button id="like">
+            <!-- <div class="cardFav"> -->
+            <!-- <img src="../assets/styles/industrial.png"> -->
+            <!-- <button id="like">
                     <div class="label">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -45,8 +40,8 @@
                         </svg>
                     </div>
                     <div class="number" id="number" style="display: none;"></div>
-                </button>
-            </div>
+                </button> -->
+            <!-- </div> -->
         </div>
 
         <div class="divQuiz">
@@ -59,14 +54,13 @@
 </html>
 
 <script>
-    const button = document.querySelector('#like');
-    const number = document.querySelector('#number');
-
-    button.addEventListener('click', () => {
-        let likeValue = document.querySelector('#number').textContent;
-        let newValue = Number(likeValue) + 1;
-        button.classList.add('like');
-        number.innerHTML = newValue;
+    fetch(`/usuarios/consultaTorneio/${sessionStorage.NICK_USER}`).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (json) {
+                alert(JSON.stringify(json));
+                document.getElementById("torneioUser").src = json[0].url;
+            });
+        }
     });
 
 </script>

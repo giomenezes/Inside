@@ -34,8 +34,28 @@ function cadastrar(nick, nome, email, senha, telefoneCel, telefoneFixo) {
     return database.executar(insUser, insTelephone);
 }
 
+function torneio(url, nickname) {
+    console.log(`${url} \n ${nickname}`);
+    var instrucao = `
+        INSERT INTO usuarioEstilo VALUES ((SELECT idEstilo FROM estilo WHERE url = '${url}'), '${nickname}', now());
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function consultaTorneio(nickname) {
+    console.log(nickname);
+    var instrucao = `
+        SELECT * FROM usuarioEstilo JOIN estilo ON idEstilo = fkEstilo WHERE fkUsuario = '${nickname}';
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    torneio,
+    consultaTorneio
 };

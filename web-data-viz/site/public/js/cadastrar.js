@@ -50,6 +50,7 @@ function cadastrar() {
             console.log('resposta: ', resposta);
             if (resposta.ok) {
                 alert('Cadastro realizado com sucesso!');
+                window.location = "../usuario/login.html";
             } else {
                 console.log(resposta)
                 alert('Erro ao cadastrar usuário.');

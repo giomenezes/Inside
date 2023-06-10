@@ -1,9 +1,8 @@
-const graphEstilos = document.getElementById('estilos');
-
-new Chart(graphEstilos, {
+var estilosCol = [];
+var graphEstilos = new Chart(document.getElementById(`estilos`), {
     type: 'bar',
     data: {
-        labels: ['Art Déco', 'Boho', 'Cottage', 'Contemporâneo', 'Eclético', 'Escandinavo', 'Industrial', 'Minimalista', 'Moderno', 'Orgânico', 'Oriental', 'Provençal', 'Rústico', 'Tradicional', 'Tropical', 'Vintage'],
+        labels: estilosCol,
         datasets: [{
             label: 'Estilos mais adorados pelos usuários',
             data: [],
@@ -29,7 +28,7 @@ new Chart(graphEstilos, {
         }]
     },
     options: {
-        indexAxis: 'y',
+        indexAxis: 'x',
         plugins: {
             legend: {
                 display: false
@@ -39,25 +38,23 @@ new Chart(graphEstilos, {
 });
 
 var xInfo = [];
-var dados = {
-    labels: xInfo,
-    datasets: [{
-        label: 'Cadastros realizados',
-        data: [],
-        fill: false,
-        borderColor: '#868890',
-        borderWidth: 1,
-        tension: 0.1,
-        pointRadius: 3,
-        backgroundColor: '#868890',
-        pointBorderColor: '#868890',
-        pointBorderWidth: 3,
-    }]
-}
-
 var graphCadastros = new Chart(document.getElementById(`cadastros`), {
     type: 'line',
-    data: dados,
+    data: {
+        labels: xInfo,
+        datasets: [{
+            label: 'Cadastros realizados',
+            data: [],
+            fill: false,
+            borderColor: '#868890',
+            borderWidth: 1,
+            tension: 0.1,
+            pointRadius: 3,
+            backgroundColor: '#868890',
+            pointBorderColor: '#868890',
+            pointBorderWidth: 3,
+        }]
+    },
     options: {
         plugins: {
             legend: {
@@ -67,48 +64,36 @@ var graphCadastros = new Chart(document.getElementById(`cadastros`), {
     }
 });
 
-const data = {
-    labels: [
-        'Red',
-        'Blue',
-        'Yellow'
-    ],
-    datasets: [{
-        label: 'My First Dataset',
-        data: [300, 50, 100],
-        backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-        ],
-        hoverOffset: 4
-    }]
-};
-
+var interacoes = [];
 var graphInteracao = new Chart(document.getElementById(`interacao`), {
     type: 'pie',
-    data: data,
+    data: {
+        labels: interacoes,
+        datasets: [{
+            label: 'Quiz e Torneio',
+            data: [],
+            backgroundColor: [
+                '#fb5607',
+                '#ffbe0b'
+            ],
+            hoverOffset: 4
+        }]
+    },
 });
 
-const dataCad = {
-    labels: [
-        'Red',
-        'Blue',
-        'Yellow'
-    ],
-    datasets: [{
-        label: 'My First Dataset',
-        data: [300, 50, 100],
-        backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-        ],
-        hoverOffset: 4
-    }]
-};
-
+var usuariosLeitores = [];
 var graphCadastrados = new Chart(document.getElementById(`cadastrados`), {
     type: 'pie',
-    data: dataCad,
+    data: {
+        labels: usuariosLeitores,
+        datasets: [{
+            label: 'Cadastrados que interagem e Não Cadastrados que interagem',
+            data: [],
+            backgroundColor: [
+                '#ff006e',
+                '#3a86ff'
+            ],
+            hoverOffset: 4
+        }]
+    }
 });

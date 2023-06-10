@@ -7,28 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/logo-nobg.png" type="image/x-icon">
     <title>Inside - Quiz</title>
-
+    
+    <link rel="stylesheet" href="../css/quizQuest.css">
     <link rel="stylesheet" href="../css/header&footer.css">
-    <link rel="stylesheet" href="../css/quiz.css">
 </head>
 
 <body>
     <script src="../assets/components/header.js"></script>
-    <!-- <div class="divPai">
-        <div class="divPerguntas"></div>
-        <div class="divEscolhas"> -->
-            <div id="quiz-container">
-                <h1 id="question"></h1>
-                <div id="options"></div>
-                <button id="next" onclick="checkAnswer()">Next</button>
-              </div>
-              
-              <div id="result-container" style="display: none;">
-        <!-- </div> -->
+    
+    <div class="divPai">
+        <div id="quizContainer">
+            <h1 id="question"></h1>
+            <h3 id="contagem"></h3>
+            <div id="options"></div>
+        </div>
+
+        <div id="result-container" style="display: none;">
+        </div>
+    </div>
 
     <script src="../assets/components/footer.js"></script>
 </body>
 
 </html>
 
-<script src="../js/quizQuest.js"></script>
+<script src="../js/quiz.js"></script>

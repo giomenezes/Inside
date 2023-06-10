@@ -10,7 +10,7 @@ if (sessionStorage.EMAIL_USER != undefined) {
                 <li class="liZoom"><a href="../posts/listaPosts.html">Posts</a></li>
                 <li class="liZoom"><a href="../quiz/start.html">Quiz</a></li>
                 <div class="dropdown">
-                        <img src="../assets/user.png" alt="Icon: User" id="user-icon" class="dropbtn">
+                        <img src="../assets/user.png" alt="Icon: User" id="user-icon" class="dropbtn" onclick="window.location = '../dashboard/perfilUser.html'">
                         <div class="dropdown-content">
                             <a href="../usuario/login.html" onclick="limpar()">Log Out</a>
                         </div>

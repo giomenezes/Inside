@@ -5,7 +5,8 @@ use inside;
 -- Criação da tabela de estilos
 create table Estilo (
 idEstilo int primary key auto_increment,
-nomeEstilo varchar(45)
+nomeEstilo varchar(45),
+url varchar(90)
 );
 
 -- Criação da tabela do usuário
@@ -14,7 +15,7 @@ nickname varchar(30) primary key,
 nome varchar (40),
 email varchar(60) unique not null,
 senha varchar(45) not null,
-adm binary
+adm boolean
 );
 
 -- Criação da tabela N:N
@@ -36,37 +37,37 @@ telefoneFixo char(13)
 );
 
 insert into Estilo values 
-(null, 'Estilo Minimalista'),
-(null, 'Estilo Industrial'),
-(null, 'Estilo Tropical'),
-(null, 'Estilo Boho'),
-(null, 'Estilo Cottage'),
-(null, 'Estilo Tradicional'),
-(null, 'Estilo Contemporâneo'),
-(null, 'Estilo Moderno'),
-(null, 'Estilo Art Déco'),
-(null, 'Estilo Escandinavo'),
-(null, 'Estilo Eclético'),
-(null, 'Estilo Orgânico'),
-(null, 'Estilo Oriental'),
-(null, 'Estilo Provençal'),
-(null, 'Estilo Rústico'),
-(null, 'Estilo Vintage');
+(null, 'Estilo Minimalista', '../assets/quiz/minimalista.png'),
+(null, 'Estilo Industrial', '../assets/quiz/industrial.png'),
+(null, 'Estilo Tropical', '../assets/quiz/tropical.png'),
+(null, 'Estilo Boho', '../assets/quiz/boho.png'),
+(null, 'Estilo Cottage', '../assets/quiz/cottage.png'),
+(null, 'Estilo Tradicional', '../assets/quiz/tradicional.png'),
+(null, 'Estilo Contemporâneo', '../assets/quiz/contemporaneo.png'),
+(null, 'Estilo Moderno', '../assets/quiz/moderno.png'),
+(null, 'Estilo Art Déco', '../assets/quiz/art deco.png'),
+(null, 'Estilo Escandinavo', '../assets/quiz/escandinavo.png'),
+(null, 'Estilo Eclético', '../assets/quiz/ecletico.png'),
+(null, 'Estilo Orgânico', '../assets/quiz/organico.png'),
+(null, 'Estilo Oriental', '../assets/quiz/oriental.png'),
+(null, 'Estilo Provençal', '../assets/quiz/provencal.png'),
+(null, 'Estilo Rústico', '../assets/quiz/rustico.png'),
+(null, 'Estilo Vintage', '../assets/quiz/vintage.png');
 
 insert into usuario values 
-('trblgio', 'gio', 'insider@gmail.com', 'giogiogio', 1),
-('robertinhaStyles', 'Roberts', 'robertinha@outlook.com', 'robertinha123', 0),
-('otavoConstrucoes', 'Otavo', 'otavo@outlook.com', 'otavoBigConstructions', 0),
-('donaLiz', 'Liz', 'liz@outlook.com', 'netinhaJoana', 0),
-('juca', 'Juca', 'm', 'juca@outlook.com', 'juquinha123', 0),
-('designNow', 'Design Now', 'design@outlook.com', 'designEVida', 0);
+('trblgio', 'gio', 'insider@gmail.com', 'giogiogio', true),
+('robertinhaStyles', 'Roberts', 'robertinha@outlook.com', 'robertinha123', false),
+('otavoConstrucoes', 'Otavo', 'otavo@outlook.com', 'otavoBigConstructions', false),
+('donaLiz', 'Liz', 'liz@outlook.com', 'netinhaJoana', false),
+('juca', 'Juca', 'juca@outlook.com', 'juquinha123', false),
+('designNow', 'Design Now', 'design@outlook.com', 'designEVida', false);
 
-insert into usuarioEstilo values 
-(1, 'robertinhaStyles', '2023-04-06'),
-(2, 'otavoConstrucoes', '2023-05-18'),
-(5, 'donaLiz', '2023-04-06'),
-(6, 'juca', '2023-05-21'),
-(8, 'designNow', '2023-04-03');
+insert into usuarioEstilo values ((select idEstilo from estilo where url = '../assets/quiz/escandinavo.png'), 'otavoConstrucoes', now());
+-- (1, 'robertinhaStyles', '2023-04-06'),
+-- (2, 'otavoConstrucoes', '2023-05-18'),
+-- (5, 'donaLiz', '2023-04-06'),
+-- (6, 'juca', '2023-05-21'),
+-- (8, 'designNow', '2023-04-03');
 
 insert into telefone values 
 ('robertinhaStyles', '(11)98437-2834', '(11)2356-9076'),
@@ -78,9 +79,12 @@ insert into telefone values
 -- Após criar as tabelas e inserir todos os dados, executar os comandos para:
 -- Exibir os dados de cada tabela separadamente (confira se os dados foram inseridos corretamente).
 select * from usuario;
-select * from estilos;
+select * from estilo;
 select * from usuarioEstilo;
 select * from telefone;
+
+-- Selecionar o estilo de certo usuário
+SELECT * FROM usuarioEstilo JOIN estilo ON idEstilo = fkEstilo WHERE fkUsuario = 'thoyf';
 
 -- Exibir uma lista apenas dos nicknames de todos os usuários.
 select nickname from usuario;

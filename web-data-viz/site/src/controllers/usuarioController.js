@@ -33,7 +33,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(nick, senha)
             .then(
                 function (resultado) {
@@ -77,10 +77,10 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (telefoneCel == undefined){
+    } else if (telefoneCel == undefined) {
         res.status(400).send("Seu telefone celular está undefined!");
     } else {
-        
+
         // Passando os valores como parâmetro
         usuarioModel.cadastrar(nick, nome, email, senha, telefoneCel, telefoneFixo)
             .then(
@@ -100,9 +100,52 @@ function cadastrar(req, res) {
     }
 }
 
+function torneio(req, res) {
+    var url = req.body.url;
+    var nickname = req.body.nickname;
+
+    if (url == undefined) {
+        res.status(500).send("URL não existe.");
+    } else if (nickname == undefined) {
+        res.status(500).send("Nickname não existe.");
+    } else {
+        usuarioModel.torneio(url, nickname)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\Houve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function consultaTorneio(req, res) {
+    var nickname = req.params.nickname;
+    usuarioModel.consultaTorneio(nickname).then(resposta => {
+        if (resposta.length > 0) {
+            res.status(200).json(resposta);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado.")
+        }
+    }).catch(erro => {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    torneio,
+    consultaTorneio
 }

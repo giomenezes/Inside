@@ -20,4 +20,12 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/torneio", (req, res) => {
+    usuarioController.torneio(req, res);
+})
+
+router.get("/consultaTorneio/:nickname", (req, res) => {
+    usuarioController.consultaTorneio(req, res);
+})
+
 module.exports = router;
