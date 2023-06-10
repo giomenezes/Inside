@@ -334,6 +334,7 @@ if (rodada == 1) {
     answer1F = tradicional.ambiente;
 
     quizContainer.style.display = 'flex;'
+    document.getElementById("image").src = "../assets/quiz/ambient.jpg"
     question.innerHTML = 'Que tipo de ambiente você prefere?'
 
     contagem.innerHTML = `${contador}/3`
@@ -435,6 +436,7 @@ function round2() {
         answer2F = tradicional.cor;
 
         options.innerHTML = '';
+        document.getElementById("image").src = "../assets/quiz/color.jpg"
         question.innerHTML = 'Que tipo de conjunto de cores você prefere?'
 
         contagem.innerHTML = `${contador}/3`
@@ -533,6 +535,7 @@ function round3() {
         answer3F = tradicional.material;
 
         options.innerHTML = '';
+        document.getElementById("image").src = "../assets/quiz/fabrics.jpg"
         question.innerHTML = 'Que tipo de materiais você prefere?'
 
         contagem.innerHTML = `${contador}/3`
@@ -630,6 +633,7 @@ function round4() {
         answer4F = tradicional.mobiliario;
 
         options.innerHTML = '';
+        document.getElementById("image").src = "../assets/quiz/furniture.jpg"
         question.innerHTML = 'Que tipo de mobilía você prefere?'
 
         contagem.innerHTML = `${contador}/3`
@@ -735,10 +739,38 @@ function finalizar() {
         winner = vintage;
     }
 
-    question.innerHTML = 'O estilo que mais combina com você é:'
-    options.innerHTML = `
-        ${winner.nome}
+    image.style.display = 'none';
+    question.style.display = 'none';
+    contagem.style.display = 'none';
+    divFinal.style = "display: flex;";
+    divFinal.innerHTML = `
+    <div id="links">
+            <h1>O estilo que mais combina com você é:</h1> 
+            <h1>${winner.nome}</h1>
+            <p>PARABÉNS! Você descobriu o estilo que mais combina contigo! Agora, você pode ler os nossos posts e identificar melhor com o design que você quer dar para sua casa. Para conseguir salvar esse resultado, você precisa se cadastrar em nosso blog! Caso contrário, você pode descobrir mais sobre outros estilos de design de interiores.</p>
+            <button onclick="perfil()">IR PARA SEU PERFIL</button>
+            <button onclick="start()">VOLTAR PARA INÍCIO DO QUIZ</button>
+            <button onclick="home()">VOLTAR PARA A HOME</button>
+        </div>
     `
 }
+
+function perfil() {
+    if (sessionStorage.NICK_USER != undefined) {
+        window.location.href = "../dashboard/perfilUser.html";
+    } else {
+        alert("Faça seu cadastro e salve seu resultado!");
+        window.location.href = "../usuario/cadastro.html";
+    }
+}
+
+function start() {
+    window.location.href = "./start.html";
+}
+
+function home() {
+    window.location.href = "../index.html";
+}
+
 
 

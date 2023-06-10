@@ -1,13 +1,15 @@
-arrayImagens = [];
-arraySorteados = [];
-arrayEscolhidos = [];
-arrayEscolhidos2 = [];
-arrayEscolhidos3 = [];
+var arrayImagens = [];
+var arraySorteados = [];
+var arrayEscolhidos = [];
+var arrayEscolhidos2 = [];
+var arrayEscolhidos3 = [];
 
-countRound = 0;
-countRound2 = 0;
-countRound3 = 0;
-countRound4 = 0;
+var countRound = 0;
+var countRound2 = 0;
+var countRound3 = 0;
+var countRound4 = 0;
+
+var winner = undefined;
 
 let chave = [{
     esquerda: "",
@@ -111,6 +113,8 @@ function mostrar() {
 
 mostrar();
 
+h2Rodadas.innerHTML = `RODADA: 1/4`
+
 function esquerda() {
     if (countRound < 8) {
         arrayEscolhidos.push(chave[countRound].esquerda);
@@ -118,7 +122,7 @@ function esquerda() {
         chave[countRound].direita = "";
 
         if (countRound >= 7) {
-            alert("Rodada 2 começou!!")
+            h2Rodadas.innerHTML = `RODADA: 2/4`
             countRound++;
         } else {
             countRound++;
@@ -144,7 +148,7 @@ function esquerda() {
             }];
 
             arraySorteados = [];
-            
+
             for (let i = 0; i < chave.length; i++) {
                 if (chave[i].esquerda == "") {
                     var numeroAleatorio = aleatorio();
@@ -172,17 +176,17 @@ function esquerda() {
         arrayEscolhidos2.push(chave[countRound2].esquerda);
         chave[countRound2].esquerda = "";
         chave[countRound2].direita = "";
-        
+
         console.log(chave);
 
         if (countRound2 >= 3) {
-            alert("Rodada 3 começou");
+            h2Rodadas.innerHTML = `RODADA: 3/4`
             countRound2++;
         } else {
             countRound2++;
             mostrar();
         }
-    }  else if (countRound3 < 2) {
+    } else if (countRound3 < 2) {
         if (countRound3 == 0) {
             chave = [{
                 esquerda: "",
@@ -224,7 +228,7 @@ function esquerda() {
         chave[countRound3].direita = ""
 
         if (countRound3 >= 1) {
-            alert("Última rodada!!");
+            h2Rodadas.innerHTML = `RODADA: 4/4`
             countRound3++;
         } else {
             countRound3++;
@@ -238,6 +242,9 @@ function esquerda() {
 
         mostrar();
         alert(`Vencedor: ${chave[0].esquerda}`);
+        winner = chave[0].esquerda;
+
+        finalizar();
 
         fetch("/usuarios/torneio", {
             method: "POST",
@@ -248,11 +255,11 @@ function esquerda() {
                 nickname: sessionStorage.NICK_USER,
                 url: chave[0].esquerda
             })
-        }).then ((resposta) => {
+        }).then((resposta) => {
             if (resposta.ok) {
                 console.log("ESTOU NO THEN DO torneio()");
             }
-        }).catch ((erro) => {
+        }).catch((erro) => {
             console.log(erro);
         });
     }
@@ -271,7 +278,7 @@ function direita() {
             countRound++;
             mostrar();
         }
-    }  else if (countRound2 < 4) {
+    } else if (countRound2 < 4) {
         if (countRound2 == 0) {
             chave = [{
                 esquerda: "",
@@ -291,7 +298,7 @@ function direita() {
             }];
 
             arraySorteados = [];
-            
+
             for (let i = 0; i < chave.length; i++) {
                 if (chave[i].esquerda == "") {
                     var numeroAleatorio = aleatorio();
@@ -385,6 +392,9 @@ function direita() {
 
         mostrar();
         alert(`Vencedor: ${chave[0].direita}`);
+        winner = chave[0].direita;
+
+        finalizar();
 
         fetch("/usuarios/torneio", {
             method: "POST",
@@ -395,13 +405,49 @@ function direita() {
                 nickname: sessionStorage.NICK_USER,
                 url: chave[0].direita
             })
-        }).then ((resposta) => {
+        }).then((resposta) => {
             if (resposta.ok) {
                 console.log("ESTOU NO THEN DO torneio()");
             }
-        }).catch ((erro) => {
+        }).catch((erro) => {
             console.log(erro);
         });
     }
 }
 
+function finalizar() {
+    divEscolhaUm.innerHTML = "";
+    divEscolhaDois.innerHTML = "";
+    divVS.innerHTML = "";
+
+    divFinal.style = "display: flex;";
+    divFinal.innerHTML = `
+        <div id="vencedor">
+            <h1>O ESTILO VENCEDOR FOI:</h1> 
+            <img src="${winner}" alt="">
+        </div>
+        <div id="links">
+            <p>PARABÉNS! Você descobriu o estilo que mais combina contigo! Agora, você pode ler os nossos posts e identificar melhor com o design que você quer dar para sua casa. Para conseguir salvar esse resultado, você precisa se cadastrar em nosso blog! Caso contrário, você pode descobrir mais sobre outros estilos de design de interiores.</p>
+            <button onclick="perfil()">IR PARA SEU PERFIL</button>
+            <button onclick="start()">VOLTAR PARA INÍCIO DO QUIZ</button>
+            <button onclick="home()">VOLTAR PARA A HOME</button>
+        </div>
+    `
+}
+
+function perfil() {
+    if (sessionStorage.NICK_USER != undefined) {
+        window.location.href = "../dashboard/perfilUser.html";
+    } else {
+        alert("Faça seu cadastro e salve seu resultado!");
+        window.location.href = "../usuario/cadastro.html";
+    }
+}
+
+function start() {
+    window.location.href = "./start.html";
+}
+
+function home() {
+    window.location.href = "../index.html";
+}
