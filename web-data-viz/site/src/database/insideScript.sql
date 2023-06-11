@@ -15,7 +15,8 @@ nickname varchar(30) primary key,
 nome varchar (40),
 email varchar(60) unique not null,
 senha varchar(45) not null,
-adm boolean
+adm boolean,
+dtCadastro date
 );
 
 -- Criação da tabela N:N
@@ -55,19 +56,19 @@ insert into Estilo values
 (null, 'Estilo Vintage', '../assets/quiz/vintage.png');
 
 insert into usuario values 
-('trblgio', 'gio', 'insider@gmail.com', 'giogiogio', true),
-('robertinhaStyles', 'Roberts', 'robertinha@outlook.com', 'robertinha123', false),
-('otavoConstrucoes', 'Otavo', 'otavo@outlook.com', 'otavoBigConstructions', false),
-('donaLiz', 'Liz', 'liz@outlook.com', 'netinhaJoana', false),
-('juca', 'Juca', 'juca@outlook.com', 'juquinha123', false),
-('designNow', 'Design Now', 'design@outlook.com', 'designEVida', false);
+('trblgio', 'gio', 'insider@gmail.com', 'giogiogio', true, curdate()),
+('robertinhaStyles', 'Roberts', 'robertinha@outlook.com', 'robertinha123', false, curdate()),
+('otavoConstrucoes', 'Otavo', 'otavo@outlook.com', 'otavoBigConstructions', false, curdate()),
+('donaLiz', 'Liz', 'liz@outlook.com', 'netinhaJoana', false, curdate()),
+('juca', 'Juca', 'juca@outlook.com', 'juquinha123', false, curdate()),
+('designNow', 'Design Now', 'design@outlook.com', 'designEVida', false, curdate());
 
-insert into usuarioEstilo values ((select idEstilo from estilo where url = '../assets/quiz/escandinavo.png'), 'otavoConstrucoes', now());
--- (1, 'robertinhaStyles', '2023-04-06'),
--- (2, 'otavoConstrucoes', '2023-05-18'),
--- (5, 'donaLiz', '2023-04-06'),
--- (6, 'juca', '2023-05-21'),
--- (8, 'designNow', '2023-04-03');
+insert into usuarioEstilo values 
+((select idEstilo from estilo where url = '../assets/quiz/escandinavo.png'), 'otavoConstrucoes', curdate()),
+((select idEstilo from estilo where url = '../assets/quiz/moderno.png'), 'robertinhaStyles', curdate()),
+((select idEstilo from estilo where url = '../assets/quiz/cottage.png'), 'donaLiz', curdate()),
+((select idEstilo from estilo where url = '../assets/quiz/organico.png'), 'juca', curdate()),
+((select idEstilo from estilo where url = '../assets/quiz/moderno.png'), 'designNow', curdate());
 
 insert into telefone values 
 ('robertinhaStyles', '(11)98437-2834', '(11)2356-9076'),

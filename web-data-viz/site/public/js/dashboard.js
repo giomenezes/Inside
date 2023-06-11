@@ -1,3 +1,21 @@
+var qtdUsuario = 0;
+var qtdEstilo = 0;
+
+var arrayMes = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro'
+]
+
 var estilosCol = [];
 var graphEstilos = new Chart(document.getElementById(`estilos`), {
     type: 'bar',
@@ -64,36 +82,74 @@ var graphCadastros = new Chart(document.getElementById(`cadastros`), {
     }
 });
 
-var interacoes = [];
-var graphInteracao = new Chart(document.getElementById(`interacao`), {
-    type: 'pie',
-    data: {
-        labels: interacoes,
-        datasets: [{
-            label: 'Quiz e Torneio',
-            data: [],
-            backgroundColor: [
-                '#fb5607',
-                '#ffbe0b'
-            ],
-            hoverOffset: 4
-        }]
-    },
-});
+fetch(`/dashboard/buscarUltimosCadastros`).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (json) {
+            
+            for (let i = 0; i < json.length; i++) {
+                graphCadastros.data.datasets[0].data.push(json[i].usuario);
+                xInfo.push(arrayMes[json[i].mes -1]);
 
-var usuariosLeitores = [];
-var graphCadastrados = new Chart(document.getElementById(`cadastrados`), {
-    type: 'pie',
-    data: {
-        labels: usuariosLeitores,
-        datasets: [{
-            label: 'Cadastrados que interagem e Não Cadastrados que interagem',
-            data: [],
-            backgroundColor: [
-                '#ff006e',
-                '#3a86ff'
-            ],
-            hoverOffset: 4
-        }]
+                qtdUsuario += json[i].usuario;
+            }
+
+            graphCadastros.update();
+        });
     }
 });
+
+var popular = "";
+
+fetch(`/dashboard/estiloPopular`).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (json) {
+            
+            for (let i = 0; i < json.length; i++) {
+                graphEstilos.data.datasets[0].data.push(json[i].qtd);
+                estilosCol.push(json[i].nomeEstilo);
+
+                var maior = 0;
+
+                for (let k = 0; k < json.length; k++) {
+                    if (json[i].qtd > json[k].qtd) {
+                        maior++;
+                    }
+                }
+
+                if (maior == json.length - 1) {
+                    popular = json[i].nomeEstilo;
+                }
+
+                qtdEstilo += json[i].qtd;
+            }
+
+            if (popular == "") {
+                popular = "Empate"
+            }
+
+            document.getElementById("spanPopular").innerHTML = popular;
+
+            graphEstilos.update();
+        });
+    }    
+});
+
+fetch(`/dashboard/cadastradosHoje`).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (json) {
+            document.getElementById('spanHoje').innerHTML = json[0].qtd;
+        })
+    }
+});
+
+fetch(`/dashboard/taxaEngajamento`).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (json) {
+            var taxa = json[0].taxa;
+            document.getElementById('TEU').innerHTML = Number(taxa).toFixed(1) + "%";
+        })
+    }
+});
+
+
+

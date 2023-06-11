@@ -9,8 +9,6 @@ var countRound2 = 0;
 var countRound3 = 0;
 var countRound4 = 0;
 
-var winner = undefined;
-
 let chave = [{
     esquerda: "",
     direita: ""
@@ -43,6 +41,8 @@ let chave = [{
     esquerda: "",
     direita: ""
 }];
+
+var winner = undefined;
 
 function aleatorio() {
     var numAleatorio = Number((Math.random() * 15).toFixed());
@@ -109,11 +109,31 @@ function mostrar() {
     }
 
     console.log("Imagens sorteadas!!")
+
+    if (winner != undefined) {
+        divEscolhaUm.innerHTML = "";
+        divEscolhaDois.innerHTML = "";
+        divVS.innerHTML = "";
+
+        divFinal.style = "display: flex;";
+        divFinal.innerHTML = `
+        <div id="vencedor">
+            <h1>O ESTILO VENCEDOR FOI:</h1> 
+            <img src="${winner}" alt="">
+        </div>
+        <div id="links">
+            <p>PARABÉNS! Você descobriu o estilo que mais combina contigo! Agora, você pode ler os nossos posts e identificar melhor com o design que você quer dar para sua casa. Para conseguir salvar esse resultado, você precisa se cadastrar em nosso blog! Caso contrário, você pode descobrir mais sobre outros estilos de design de interiores.</p>
+            <button onclick="verificarSessao()">IR PARA SEU PERFIL</button>
+            <button onclick="window.location.href = ''./start.html'">VOLTAR PARA INÍCIO DO QUIZ</button>
+            <button onclick="window.location.href = ''../index.html'">VOLTAR PARA A HOME</button>
+        </div>
+    `
+    }
 }
 
 mostrar();
 
-h2Rodadas.innerHTML = `RODADA: 1/4`
+h2Rodadas.innerHTML = '1/4';
 
 function esquerda() {
     if (countRound < 8) {
@@ -122,13 +142,15 @@ function esquerda() {
         chave[countRound].direita = "";
 
         if (countRound >= 7) {
-            h2Rodadas.innerHTML = `RODADA: 2/4`
+            console.log("Rodada 2 começou!!")
             countRound++;
         } else {
             countRound++;
             mostrar();
         }
     } else if (countRound2 < 4) {
+        h2Rodadas.innerHTML = '2/4';
+
         if (countRound2 == 0) {
             chave = [{
                 esquerda: "",
@@ -180,13 +202,17 @@ function esquerda() {
         console.log(chave);
 
         if (countRound2 >= 3) {
-            h2Rodadas.innerHTML = `RODADA: 3/4`
+            console.log("Rodada 3 começou");
+
             countRound2++;
         } else {
             countRound2++;
+
             mostrar();
         }
     } else if (countRound3 < 2) {
+        h2Rodadas.innerHTML = '3/4';
+
         if (countRound3 == 0) {
             chave = [{
                 esquerda: "",
@@ -224,27 +250,30 @@ function esquerda() {
         }
 
         arrayEscolhidos3.push(chave[countRound3].esquerda);
-        chave[countRound3].esquerda = ""
-        chave[countRound3].direita = ""
+        chave[countRound3].esquerda = "";
+        chave[countRound3].direita = "";
 
         if (countRound3 >= 1) {
-            h2Rodadas.innerHTML = `RODADA: 4/4`
+            console.log("Última rodada!!");
+
             countRound3++;
         } else {
+
             countRound3++;
             mostrar();
         }
     } else {
+        h2Rodadas.innerHTML = '4/4';
+
         chave = [{
             esquerda: arrayEscolhidos3[0],
             direita: arrayEscolhidos3[1]
-        }]
+        }];
 
+        countRound4++;
         mostrar();
-        alert(`Vencedor: ${chave[0].esquerda}`);
+        console.log(`Vencedor: ${chave[0].esquerda}`);
         winner = chave[0].esquerda;
-
-        finalizar();
 
         fetch("/usuarios/torneio", {
             method: "POST",
@@ -272,13 +301,15 @@ function direita() {
         chave[countRound].direita = "";
 
         if (countRound >= 7) {
-            alert("Rodada 2 começou!!")
+            console.log("Rodada 2 começou!!")
             countRound++;
         } else {
             countRound++;
             mostrar();
         }
     } else if (countRound2 < 4) {
+        h2Rodadas.innerHTML = '2/4';
+
         if (countRound2 == 0) {
             chave = [{
                 esquerda: "",
@@ -330,13 +361,17 @@ function direita() {
         console.log(chave);
 
         if (countRound2 >= 3) {
-            alert("Rodada 3 começou");
+            console.log("Rodada 3 começou");
+
             countRound2++;
         } else {
+
             countRound2++;
             mostrar();
         }
     } else if (countRound3 < 2) {
+        h2Rodadas.innerHTML = '3/4';
+
         if (countRound3 == 0) {
             chave = [{
                 esquerda: "",
@@ -378,23 +413,24 @@ function direita() {
         chave[countRound3].direita = ""
 
         if (countRound3 >= 1) {
-            alert("última rodada!!");
+            console.log("última rodada!!");
             countRound3++;
         } else {
             countRound3++;
             mostrar();
         }
     } else {
+        h2Rodadas.innerHTML = '4/4';
+
         chave = [{
             esquerda: arrayEscolhidos3[0],
             direita: arrayEscolhidos3[1]
-        }]
+        }];
 
+        countRound4++;
         mostrar();
-        alert(`Vencedor: ${chave[0].direita}`);
-        winner = chave[0].direita;
-
-        finalizar();
+        console.log(`Vencedor: ${chave[1].direita}`);
+        winner = chave[1].direita;
 
         fetch("/usuarios/torneio", {
             method: "POST",
@@ -403,7 +439,7 @@ function direita() {
             },
             body: JSON.stringify({
                 nickname: sessionStorage.NICK_USER,
-                url: chave[0].direita
+                url: chave[1].direita
             })
         }).then((resposta) => {
             if (resposta.ok) {
@@ -415,39 +451,12 @@ function direita() {
     }
 }
 
-function finalizar() {
-    divEscolhaUm.innerHTML = "";
-    divEscolhaDois.innerHTML = "";
-    divVS.innerHTML = "";
-
-    divFinal.style = "display: flex;";
-    divFinal.innerHTML = `
-        <div id="vencedor">
-            <h1>O ESTILO VENCEDOR FOI:</h1> 
-            <img src="${winner}" alt="">
-        </div>
-        <div id="links">
-            <p>PARABÉNS! Você descobriu o estilo que mais combina contigo! Agora, você pode ler os nossos posts e identificar melhor com o design que você quer dar para sua casa. Para conseguir salvar esse resultado, você precisa se cadastrar em nosso blog! Caso contrário, você pode descobrir mais sobre outros estilos de design de interiores.</p>
-            <button onclick="perfil()">IR PARA SEU PERFIL</button>
-            <button onclick="start()">VOLTAR PARA INÍCIO DO QUIZ</button>
-            <button onclick="home()">VOLTAR PARA A HOME</button>
-        </div>
-    `
-}
-
-function perfil() {
-    if (sessionStorage.NICK_USER != undefined) {
-        window.location.href = "../dashboard/perfilUser.html";
+function verificarSessao() {
+    if (sessionStorage.NICK_USER == undefined) {
+        alert("Faça o login para salvar seu resultado!");
+        window.location = "../usuario/login.html";
     } else {
-        alert("Faça seu cadastro e salve seu resultado!");
-        window.location.href = "../usuario/cadastro.html";
+        alert("Estilo salvo com sucesso!");
+        window.location = "../dashboard/perfilUser.html";
     }
-}
-
-function start() {
-    window.location.href = "./start.html";
-}
-
-function home() {
-    window.location.href = "../index.html";
 }

@@ -25,7 +25,7 @@ function cadastrar(nick, nome, email, senha, telefoneCel, telefoneFixo) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var insUser = `
-        INSERT INTO usuario (nickname, nome, email, senha, adm) VALUES ('${nick}', '${nome}', '${email}', '${senha}', 0);
+        INSERT INTO usuario (nickname, nome, email, senha, adm, dtCadastro) VALUES ('${nick}', '${nome}', '${email}', '${senha}', 0, curdate());
     `;
     var insTelephone = `
         INSERT INTO telefone (fkUsuario, telefoneCelular, telefoneFixo) VALUES ((SELECT nickname FROM usuario as fkUsuario WHERE nickname = '${nick}'), '${telefoneCel}', '${telefoneFixo}');
@@ -37,7 +37,7 @@ function cadastrar(nick, nome, email, senha, telefoneCel, telefoneFixo) {
 function torneio(url, nickname) {
     console.log(`${url} \n ${nickname}`);
     var instrucao = `
-        INSERT INTO usuarioEstilo VALUES ((SELECT idEstilo FROM estilo WHERE url = '${url}'), '${nickname}', now());
+        INSERT INTO usuarioEstilo VALUES ((SELECT idEstilo FROM estilo WHERE url = '${url}'), '${nickname}', CURDATE());
     `
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
