@@ -1,0 +1,104 @@
+body {
+    background-color: rgb(238, 233, 233);
+}
+
+.divPai {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#divEscolhaUm, #divEscolhaDois {
+    margin: 0px;
+    padding: 0px;
+    
+    width: 50%;
+    height: 100%;
+}
+
+#divEscolhaUm img, #divEscolhaDois img {
+    width: 97%;
+    height: 85vh;
+
+    box-sizing: border-box;
+    
+    display: flex;
+    cursor: pointer;
+}
+
+#divVS {
+    display: flexbox;
+    justify-content: center;
+}
+
+#divVS img {
+    width: 110px;
+    height: 110px;
+}
+
+h2 {
+    color: #DCB66F;
+    text-align: center;
+    text-transform: uppercase;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 2vh;
+}
+
+#divFinal {
+    width: 100%;
+    height: 100%;
+    margin-right: 21vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background-color: #868890;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+#vencedor {
+    width: 25vw;
+    height: 65vh;
+
+    flex-direction: column;
+}
+
+#vencedor img {
+    width: 90%;
+    height: 61vh;
+
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+#links {
+    display: flex;
+    width: 25vw;
+    height: 65vh;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: justify;
+}
+
+#links button {
+    width: 100%;
+    height: auto;
+
+    box-sizing: border-box;
+    box-shadow: 0px 1px 1px  rgb(66, 76, 87);
+    border: solid 1px #484e5f;
+    background-color: lightslategray;
+
+    cursor: pointer;
+}
+

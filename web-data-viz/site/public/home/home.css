@@ -5,14 +5,14 @@
 }
 
 .spacing {
-    width: 100vw;
+    width: 100%;
     height: 10vh;
 }
 
 #divPai {
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -21,13 +21,13 @@
 #divMainPhoto {
     margin: 0px;
     display: flex;
-    width: 100vw;
-    height: 85vh;
+    width: 100%;
+    height: 85%;
 }
 
 #divMainPhoto img {
-    width: 100vw;
-    height: 85vh;
+    width: 100%;
+    height: 85%;
     box-sizing: border-box;
     box-shadow: #d1d1d1 0px 5px 5px 0px;
 }
@@ -129,7 +129,7 @@
 
 #divBolinhas {
     display: flex;
-    width: 100vw;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
@@ -179,10 +179,14 @@ h2 {
 }
 
 #divTCC img {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 #divSobreMim {
     display: flex;
+}
+
+#quizCall {
+    cursor: pointer;
 }

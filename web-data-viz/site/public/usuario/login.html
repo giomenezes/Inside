@@ -8,20 +8,14 @@
     <link rel="shortcut icon" href="../assets/logo-nobg.png" type="image/x-icon">
     <title>Inside - Login</title>
 
-    <link rel="stylesheet" href="../../style/header&footer.css">
-    <link rel="stylesheet" href="../usuario/usuario.css">
+    <link rel="stylesheet" href="../css/header&footer.css">
+    <link rel="stylesheet" href="../css/usuario.css">
 </head>
 
 <body>
     <script src="../assets/components/header.js"></script>
 
     <div id="pai">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
-
         <div id="divPhoto">
             <img src="../assets/usuario/loginPhoto.png" alt="Projeto: Abraçando as Curvas - archDaily">
         </div>
@@ -31,98 +25,21 @@
             <div class="divForm">
                 <p>Login:</p>
                 Nickname: <br>
-                <input type="text" name="" id="ipt_nickname"> <br>
+                <input type="text" id="ipt_nickname" placeholder="Insira seu nome de usuário"> <br>
                 Senha: <br>
-                <input type="text" name="" id="ipt_senha"> <br>
-                <button onclick="entrar()">Entrar</button>
-
-                <div id="div_aguardar" class="loading-div">
-                    <img src="../assets/usuario/loading.gif" id="loading-gif">
+                <input type="password" id="ipt_senha" placeholder="Insira sua senha"> <br>
+                <button onclick="login()">Entrar</button>
+                <div id="divLoading">
+                    <img src="https://th.bing.com/th/id/R.e4b6323e19e57f6761b1ce47b7d329e0?rik=D4%2b%2fTxSGPiWP2g&pid=ImgRaw&r=0"
+                        alt="loading-gif">
                 </div>
-
-                <div id="div_erros_login"></div>
             </div>
         </div>
     </div>
 
     <script src="../assets/components/footer.js"></script>
 </body>
-</body>
 
 </html>
 
-<script>
-    function entrar() {
-        aguardar();
-
-        var emailVar = ipt_nickname.value;
-        var senhaVar = ipt_senha.value;
-
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-
-                    setTimeout(function () {
-                        if (emailVar == 'insider@gmail.com') {
-                            window.location = "./dashboard/dashAdm.html"
-                        } else {
-                            window.location = "./dashboard/dashUser.html";
-                        }
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
-</script>
+<script src="../js/login.js"></script>

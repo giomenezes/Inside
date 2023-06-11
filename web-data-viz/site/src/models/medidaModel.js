@@ -66,3 +66,4 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal
 }
+

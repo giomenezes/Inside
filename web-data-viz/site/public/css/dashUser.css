@@ -1,0 +1,59 @@
+.divPai {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+
+}
+
+.divFavoritos {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+}
+
+.torneio {
+  width: 100%;
+  height: 100%;
+  margin-top: 3vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.torneio img {
+  width: 30vw;
+  height: 70vh;
+}
+
+.quiz {
+  width: 100%;
+  height: 100%;
+  margin-top: 3vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz img {
+  width: 30vw;
+  height: 70vh;
+}
+
+h1 {
+  font-size: 25px;
+  color: #DCB66F;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+p, span {
+  font-size: 20px;
+  color: #DCB66F;
+  text-transform: uppercase;
+}
