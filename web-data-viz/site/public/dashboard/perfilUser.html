@@ -25,17 +25,17 @@
                 <p>Feito no dia: <span id="diaTorneio"></span></p>
             </div>
 
-            <div class="quiz">
+            <!-- <div class="quiz">
                 <h1>O resultado do quiz foi:</h1>
                 <img id="quizUser" src="">
                 <p>Feito no dia: <span id="diaQuiz"></span></p>
-            </div>
+            </div> -->
         </div>
 
-        <div class="divQuiz">
+        <!-- <div class="divQuiz">
             <div class="divResultQuiz"></div>
             <div class="divDescQuiz"></div>
-        </div>
+        </div> -->
     </div>
 </body>
 
@@ -44,12 +44,12 @@
 <script>
 
     fetch(`/usuarios/consultaTorneio/${sessionStorage.NICK_USER}`).then(function (response) {
-        
+
         if (response.ok) {
             response.json().then(function (json) {
-                alert(JSON.stringify(json));
+                // alert(JSON.stringify(json));
                 document.getElementById("torneioUser").src = json[0].url;
-                dataFormat = json[0].dataQuiz;
+                dataFormat = json[0].dataTorneio;
 
                 var data = dataFormat.slice(0, 10);
                 var dia = data.slice(8, 10);
@@ -59,7 +59,12 @@
 
                 document.getElementById("diaTorneio").innerHTML = dataTorneio
             });
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
         }
+    }).catch(function (erro) {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
     });
 
 </script>

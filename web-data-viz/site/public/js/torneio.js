@@ -124,7 +124,7 @@ function mostrar() {
         <div id="links">
             <p>PARABÉNS! Você descobriu o estilo que mais combina contigo! Agora, você pode ler os nossos posts e identificar melhor com o design que você quer dar para sua casa. Para conseguir salvar esse resultado, você precisa se cadastrar em nosso blog! Caso contrário, você pode descobrir mais sobre outros estilos de design de interiores.</p>
             <button onclick="verificarSessao()">IR PARA SEU PERFIL</button>
-            <button onclick="window.location.href = ''./start.html'">VOLTAR PARA INÍCIO DO QUIZ</button>
+            <button onclick="window.location.href = ''../estilos/listaEstilos.html'">VEJA MAIS SOBRE OS ESTILOS</button>
             <button onclick="window.location.href = ''../index.html'">VOLTAR PARA A HOME</button>
         </div>
     `

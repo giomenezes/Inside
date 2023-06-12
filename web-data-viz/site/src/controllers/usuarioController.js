@@ -103,16 +103,13 @@ function cadastrar(req, res) {
 function torneio(req, res) {
     var url = req.body.url;
     var nickname = req.body.nickname;
-    var tipo = req.body.tipo;
 
     if (url == undefined) {
         res.status(500).send("URL não existe.");
     } else if (nickname == undefined) {
         res.status(500).send("Nickname não existe.");
-    } else if (tipo == undefined) {
-        res.status(500).send("Tipo não existe.");
     } else {
-        usuarioModel.torneio(url, nickname, tipo)
+        usuarioModel.torneio(url, nickname)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -8,7 +8,7 @@ if (sessionStorage.EMAIL_USER != undefined) {
             <ul>
                 <li class="liZoom"><a href="../estilos/listaEstilos.html">Estilos</a></li>
                 <li class="liZoom"><a href="../posts/listaPosts.html">Posts</a></li>
-                <li class="liZoom"><a href="../quiz/start.html">Quiz</a></li>
+                <li class="liZoom"><a href="../quiz/start.html">Torneio</a></li>
                 <div class="dropdown">
                         <img src="../assets/user.png" alt="Icon: User" id="user-icon" class="dropbtn" onclick="window.location = '../dashboard/perfilUser.html'">
                         <div class="dropdown-content">
@@ -26,7 +26,7 @@ if (sessionStorage.EMAIL_USER != undefined) {
                 <ul>
                     <li class="liZoom"><a href="../estilos/listaEstilos.html">Estilos</a></li>
                     <li class="liZoom"><a href="../posts/listaPosts.html">Posts</a></li>
-                    <li class="liZoom"><a href="../quiz/start.html">Quiz</a></li>
+                    <li class="liZoom"><a href="../quiz/start.html">Torneio</a></li>
                     <div class="dropdown">
                             <img src="../assets/user.png" alt="Icon: User" id="user-icon" class="dropbtn">
                             <div class="dropdown-content">
