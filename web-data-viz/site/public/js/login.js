@@ -56,7 +56,7 @@ function login() {
                 } else {
                     setTimeout(function () {
                         window.alert(`Bem-vindo(a) de volta, ${sessionStorage.NOME_USER}!`)
-                        window.location = "../dashboard/perfilUser.html";
+                        window.location = "../index.html";
                     }, 1000);
                 }
             });
