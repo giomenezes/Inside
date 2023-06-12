@@ -41,3 +41,7 @@ if (sessionStorage.NICK_USER == undefined) {
 function levarQuiz() {
     window.location = "./quiz/start.html";
 }
+
+function limpar() {
+    sessionStorage.clear();
+}
